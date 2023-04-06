@@ -31,8 +31,12 @@ class MyHomePage extends ConsumerWidget {
   final String title;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var firstday = ref.watch(tutorialViewModel);
+    var flag = ref.watch(tutorialViewModel);
     ref.read(tutorialViewModel.notifier).checkFirstLaunchDate();
+    if (flag.shouldShowDailyView == true) {
+      print('ooooo');
+      ref.read(tutorialViewModel.notifier).finishShow1();
+    };
     return Scaffold(
       appBar: AppBar(
         title: Text(''),
